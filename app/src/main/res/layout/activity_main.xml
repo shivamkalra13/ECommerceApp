@@ -4,50 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:id="@+id/custtoolbar"
-        android:background="@android:color/holo_blue_dark"
-        app:title="Ecommerce App"
-        app:titleTextColor="@android:color/white"
-        ></androidx.appcompat.widget.Toolbar>
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:id="@+id/login"
-        android:layout_alignParentBottom="true"
-        android:background="@android:color/holo_blue_dark"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="70dp"
-        android:text="LogIn"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        ></Button>
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:id="@+id/signnup"
-        android:layout_alignParentBottom="true"
-        android:background="@android:color/holo_blue_dark"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="70dp"
-        android:text="SignUp"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        ></Button>
 
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:layout_width="518dp"
+        android:layout_height="665dp"
+        android:src="@drawable/bg"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-80dp"
+        ></ImageView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="skip"
-        android:textStyle="italic"
-        android:layout_alignParentBottom="true"
+        android:text="ECommerceApp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:textSize="25sp"
-        android:layout_marginBottom="35dp"
-        ></TextView>
+        android:textStyle="bold"
+        />
+    <Button
+        android:id="@+id/google"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textAllCaps="false"
+        android:layout_marginBottom="130dp"
+        android:background="@drawable/bt__border"
+        android:text="Google"
+        android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+
+        android:layout_alignTop="@+id/google"
+
+        android:layout_marginTop="80dp"
+        android:background="@drawable/bt__border"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="10dp"
+        android:text="Log In"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:textAllCaps="false"></Button>
+
+    <Button
+        android:id="@+id/signnup"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/google"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/bt__border"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:text="Sign up"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+
+
+        ></Button>
+
+    <TextView
+        android:id="@+id/skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:text="skip >>"
+        android:layout_marginBottom="5dp"
+        android:textStyle="italic"
+        android:layout_alignTop="@+id/google"
+        android:layout_marginTop="150dp"
+        android:textSize="20dp"
+
+       ></TextView>
+
+
 
 </RelativeLayout>
