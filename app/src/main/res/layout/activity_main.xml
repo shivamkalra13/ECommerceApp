@@ -13,5 +13,41 @@
         app:title="Ecommerce App"
         app:titleTextColor="@android:color/white"
         ></androidx.appcompat.widget.Toolbar>
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:id="@+id/login"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/holo_blue_dark"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="70dp"
+        android:text="LogIn"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        ></Button>
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:id="@+id/signnup"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/holo_blue_dark"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="70dp"
+        android:text="SignUp"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        ></Button>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="skip"
+        android:textStyle="italic"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
+        android:layout_marginBottom="35dp"
+        ></TextView>
 
 </RelativeLayout>
