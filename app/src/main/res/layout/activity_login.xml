@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FBFBFB"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+    <ImageView
+        android:id="@+id/tbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/border"
+        android:layout_marginTop="-4dp"
+        android:layout_marginLeft="-4dp"
+        android:layout_marginRight="-4dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/up"
+        android:layout_width="24dp"
+        android:layout_height="23dp"
+        android:layout_alignTop="@+id/tbar"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/backbtn"
+        android:onClick="goHome" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/up"
+        android:layout_alignTop="@+id/tbar"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="serif"
+        android:text="Login"
+        android:textColor="#353535"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Mobile Number or Email ID"
+            android:layout_alignTop="@+id/tbar"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="20dp"/>
+</RelativeLayout>

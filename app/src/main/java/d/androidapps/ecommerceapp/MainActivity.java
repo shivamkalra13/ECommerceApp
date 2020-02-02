@@ -24,13 +24,13 @@ Button login,signup,google;
                 startActivity(i);
             }
         });
-        signup.setOnClickListener(new View.OnClickListener() {
+        /*signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(MainActivity.this,SignupActivity.class);
                 startActivity(i);
             }
-        });
+        });*/
 
 
     }
