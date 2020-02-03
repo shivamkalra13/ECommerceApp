@@ -65,32 +65,47 @@ public class SignupActivity extends AppCompatActivity {
                 if(email.getText().toString().equals(""))
                 {
                     email.setError("Enter Email");
+                    email.requestFocus();
 
-                }
-                if(name.getText().toString().equals(""))
-                {
-                    name.setError("Enter name");
 
                 }
                 if(password.getText().toString().equals(""))
                 {
                     name.setError("Enter password");
+                    if(!email.getText().toString().equals(""))
+                    password.requestFocus();
 
                 }
                 if(phnumber.getText().toString().equals(""))
                 {
+
                     phnumber.setError("Enter name");
+                    if(!name.getText().toString().equals(""))
+                    phnumber.requestFocus();
+
+                }
+                if(name.getText().toString().equals(""))
+                {
+                    name.setError("Enter name");
+                    if(!phnumber.getText().toString().equals(""))
+                    name.requestFocus();
 
                 }
 
                 if (gender.equals(""))
                 {gendertext.setError("Select Gender");
+                    if(!name.getText().toString().equals(""))
+                    {
+                        gendertext.requestFocus();
+                    }
                     }
 
-                else {
+                if(!email.getText().toString().equals("") && !phnumber.getText().toString().equals("") && !password.getText().toString().equals("") && !name.getText().toString().equals("") && !gender.equals("")) {
                     Toast.makeText(getApplicationContext(),"Account Created Succesfully",Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(SignupActivity.this, MainActivity.class);
-                    startActivity(i);
+                    Intent i = new Intent(SignupActivity.this, HomeActivity.class);
+                    i.putExtra("name",name.getText().toString());
+                    startActivity(i); finish();
+
                 }
 
 
