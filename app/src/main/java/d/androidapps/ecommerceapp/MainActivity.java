@@ -33,7 +33,10 @@ Button login,signup,google;
                 startActivity(i);
             }
         });
-
-
+    }
+    public void skip(View view)
+    {
+        Intent i = new Intent(MainActivity.this,HomeActivity.class);
+        startActivity(i);
     }
 }
