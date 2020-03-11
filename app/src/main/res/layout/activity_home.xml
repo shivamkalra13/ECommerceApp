@@ -23,6 +23,13 @@
             android:layout_height="match_parent"
             android:text="Hdellndafdnff kfjkaljfljaklfj df ijkfljlajklf"
             android:layout_below="@+id/toolbar"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:text="ItemsDisp activity"
+            android:onClick="toItemsDisp"
+            />
     </RelativeLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"

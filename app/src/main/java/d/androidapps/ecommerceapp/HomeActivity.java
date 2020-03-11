@@ -93,4 +93,9 @@ public class HomeActivity extends AppCompatActivity{
         );
     }
 
+    public void toItemsDisp(View view)
+    {
+        Intent i = new Intent(HomeActivity.this,ItemsDisp.class);
+        startActivity(i);
+    }
 }
