@@ -43,8 +43,8 @@ public class HomeActivity extends AppCompatActivity{
         vscroll = findViewById(R.id.vscroll);
         toolbar.inflateMenu(R.menu.tbar_menu);
         toolbar.setNavigationIcon(R.drawable.menu1);
-        animShow = AnimationUtils.loadAnimation( this, R.anim.view_show);
-        animHide = AnimationUtils.loadAnimation( this, R.anim.view_hide);
+        //animShow = AnimationUtils.loadAnimation( this, R.anim.view_show);
+        //animHide = AnimationUtils.loadAnimation( this, R.anim.view_hide);
         toolbar.setNavigationOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -130,8 +130,8 @@ public class HomeActivity extends AppCompatActivity{
             vscroll.setOnScrollChangeListener(new View.OnScrollChangeListener() {
                 @Override
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                    System.out.println("main scroll = "+scrollY);
-                    System.out.println("Old scroll = "+oldScrollY);
+                    //System.out.println("main scroll = "+scrollY);
+                    //System.out.println("Old scroll = "+oldScrollY);
                     if (scrollY > oldScrollY) {
                         //scroll up
                        //linear.setVisibility(View.VISIBLE);

@@ -18,7 +18,15 @@ Button login,signup,google;
         setContentView(R.layout.activity_main);
         login=findViewById(R.id.login);
         signup=findViewById(R.id.signup);
+        google = findViewById(R.id.google);
 
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this,ItemsDisp.class);
+                startActivity(i);
+            }
+        });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
