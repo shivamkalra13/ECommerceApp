@@ -6,12 +6,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -27,17 +31,20 @@ public class HomeActivity extends AppCompatActivity{
     NavigationView nav;
   LinearLayout linear;
     ScrollView vscroll;
+    private Animation animShow, animHide;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
-        linear=findViewById(R.id.linear);
-        vscroll=findViewById(R.id.vscroll);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        linear = findViewById(R.id.linear);
+        vscroll = findViewById(R.id.vscroll);
         toolbar.inflateMenu(R.menu.tbar_menu);
         toolbar.setNavigationIcon(R.drawable.menu1);
+        animShow = AnimationUtils.loadAnimation( this, R.anim.view_show);
+        animHide = AnimationUtils.loadAnimation( this, R.anim.view_hide);
         toolbar.setNavigationOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -55,17 +62,16 @@ public class HomeActivity extends AppCompatActivity{
                 new Toolbar.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-                        switch(menuItem.getItemId())
-                        {
+                        switch (menuItem.getItemId()) {
                             case R.id.search:
-                                Toast.makeText(HomeActivity.this,"clicked search",Toast.LENGTH_LONG).show();
+                                Toast.makeText(HomeActivity.this, "clicked search", Toast.LENGTH_LONG).show();
                                 break;
                             case R.id.bookmarks:
-                                Toast.makeText(HomeActivity.this,"clicked bookmark",Toast.LENGTH_LONG).show();
+                                Toast.makeText(HomeActivity.this, "clicked bookmark", Toast.LENGTH_LONG).show();
                                 //bookmark list
                                 break;
                             case R.id.cart:
-                                Toast.makeText(HomeActivity.this,"clicked cart",Toast.LENGTH_LONG).show();
+                                Toast.makeText(HomeActivity.this, "clicked cart", Toast.LENGTH_LONG).show();
                                 //cart
                                 break;
                         }
@@ -80,20 +86,19 @@ public class HomeActivity extends AppCompatActivity{
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                        int id=menuItem.getItemId();
-                        switch (id)
-                        {
+                        int id = menuItem.getItemId();
+                        switch (id) {
                             case R.id.account:
                                 Toast.makeText(HomeActivity.this, "Clicked Account", Toast.LENGTH_LONG).show();
                                 break;
                             case R.id.refer:
-                                Toast.makeText(HomeActivity.this,"clicked srefer",Toast.LENGTH_LONG).show();
+                                Toast.makeText(HomeActivity.this, "clicked srefer", Toast.LENGTH_LONG).show();
                                 break;
                             case R.id.orders:
-                                Toast.makeText(HomeActivity.this,"clicked order",Toast.LENGTH_LONG).show();
+                                Toast.makeText(HomeActivity.this, "clicked order", Toast.LENGTH_LONG).show();
                                 break;
                             case R.id.bookmarks:
-                                Toast.makeText(HomeActivity.this,"clicked book",Toast.LENGTH_LONG).show();
+                                Toast.makeText(HomeActivity.this, "clicked book", Toast.LENGTH_LONG).show();
                                 break;
                         }
                         return false;
@@ -102,28 +107,50 @@ public class HomeActivity extends AppCompatActivity{
         );
 
 
-        vscroll.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+        /*vscroll.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
             public void onScrollChanged() {
-                /* get the maximum height which we have scroll before performing any action */
+                *//* get the maximum height which we have scroll before performing any action *//*
                 int maxDistance = linear.getHeight();
-                /* how much we have scrolled */
+                *//* how much we have scrolled *//*
                 int movement = linear.getScrollY();
-                /*finally calculate the alpha factor and set on the view */
+                *//*finally calculate the alpha factor and set on the view *//*
               //  float alphaFactor = ((movement * 1.0f) / (maxDistance - heading.getHeight()));
                 if (movement >= 0 && movement <= maxDistance) {
-                    /*for image parallax with scroll */
+                    *//*for image parallax with scroll *//*
                     linear.setTranslationY(-movement);
-                    /* set visibility */
+                    *//* set visibility *//*
                   //  heading.setAlpha(alphaFactor);
                 }
             }
-        });
-    }
+        });*/
 
-    public void toItemsDisp(View view)
-    {
-        Intent i = new Intent(HomeActivity.this,ItemsDisp.class);
-        startActivity(i);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            vscroll.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    System.out.println("main scroll = "+scrollY);
+                    System.out.println("Old scroll = "+oldScrollY);
+                    if (scrollY > oldScrollY) {
+                        //scroll up
+                       //linear.setVisibility(View.VISIBLE);
+                        //linear.startAnimation( animShow );//
+                        //vscroll.animate().translationY(0);
+                        linear.animate().translationY(-linear.getHeight());
+                       // linear.setVisibility(View.GONE);
+                    } else {
+                        //linear.startAnimation( animHide );
+                        //linear.setVisibility(View.GONE);
+                       // linear.setVisibility(View.VISIBLE);
+                        linear.animate().translationY(0);
+                        //vscroll.animate().translationY(-linear.getHeight());
+
+
+                    }
+                }
+            });
+        }
+
     }
 }

@@ -21,56 +21,65 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:id="@+id/linear"
+    android:translationZ="-2dp"
     android:layout_below="@+id/toolbar"
     android:layout_height="200dp">
         <HorizontalScrollView
             android:id="@+id/hscroll"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
             android:layout_below="@+id/toolbar">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
+                android:background="@color/colorAccent"
                 android:orientation="horizontal">
-
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="-100dp"
                     android:paddingRight="-100dp"
-                    android:src="@drawable/eecomedit" />
-
+                    android:src="@drawable/bg" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="-100dp"
                     android:paddingRight="-100dp"
-                    android:src="@drawable/eecomedit" />
-
+                    android:src="@drawable/bg" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="-100dp"
                     android:paddingRight="-100dp"
-                    android:src="@drawable/eecomedit" />
-
+                    android:src="@drawable/bg" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/eecomedit" />
+                    android:paddingLeft="-100dp"
+                    android:paddingRight="-100dp"
+                    android:src="@drawable/bg" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="-100dp"
+                    android:paddingRight="-100dp"
+                    android:src="@drawable/bg" />
             </LinearLayout>
         </HorizontalScrollView>
 </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/linear"
+            android:layout_height="wrap_content"
+            android:translationZ="-3dp"
+            android:layout_below="@+id/toolbar"
             android:id="@+id/vscroll"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
