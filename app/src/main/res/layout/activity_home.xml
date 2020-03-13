@@ -8,29 +8,86 @@
     tools:context=".HomeActivity">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    <Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:title="Store"
-        android:titleTextColor="#4A4A4A"
-        android:minHeight="?attr/actionBarSize"
-        />
-        <TextView
+        android:layout_height="match_parent">
+
+        <Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:title="Store"
+            android:titleTextColor="#4A4A4A" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:id="@+id/linear"
+    android:layout_below="@+id/toolbar"
+    android:layout_height="200dp">
+        <HorizontalScrollView
+            android:id="@+id/hscroll"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/toolbar">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="-100dp"
+                    android:paddingRight="-100dp"
+                    android:src="@drawable/eecomedit" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="-100dp"
+                    android:paddingRight="-100dp"
+                    android:src="@drawable/eecomedit" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="-100dp"
+                    android:paddingRight="-100dp"
+                    android:src="@drawable/eecomedit" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/eecomedit" />
+            </LinearLayout>
+        </HorizontalScrollView>
+</LinearLayout>
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Hdellndafdnff kfjkaljfljaklfj df ijkfljlajklf"
-            android:layout_below="@+id/toolbar"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar"
-            android:text="ItemsDisp activity"
-            android:onClick="toItemsDisp"
-            />
+            android:layout_below="@+id/linear"
+            android:id="@+id/vscroll"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/eecomedit" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/eecomedit" />
+            </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
+
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

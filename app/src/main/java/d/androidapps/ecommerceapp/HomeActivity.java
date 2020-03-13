@@ -11,7 +11,11 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -21,12 +25,17 @@ import com.google.android.material.navigation.NavigationView;
 public class HomeActivity extends AppCompatActivity{
     Toolbar toolbar;
     NavigationView nav;
+  LinearLayout linear;
+    ScrollView vscroll;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
         toolbar = (Toolbar)findViewById(R.id.toolbar);
+        linear=findViewById(R.id.linear);
+        vscroll=findViewById(R.id.vscroll);
         toolbar.inflateMenu(R.menu.tbar_menu);
         toolbar.setNavigationIcon(R.drawable.menu1);
         toolbar.setNavigationOnClickListener(
@@ -91,6 +100,25 @@ public class HomeActivity extends AppCompatActivity{
                     }
                 }
         );
+
+
+        vscroll.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                /* get the maximum height which we have scroll before performing any action */
+                int maxDistance = linear.getHeight();
+                /* how much we have scrolled */
+                int movement = linear.getScrollY();
+                /*finally calculate the alpha factor and set on the view */
+              //  float alphaFactor = ((movement * 1.0f) / (maxDistance - heading.getHeight()));
+                if (movement >= 0 && movement <= maxDistance) {
+                    /*for image parallax with scroll */
+                    linear.setTranslationY(-movement);
+                    /* set visibility */
+                  //  heading.setAlpha(alphaFactor);
+                }
+            }
+        });
     }
 
     public void toItemsDisp(View view)
