@@ -89,13 +89,16 @@ public class HomeActivity extends AppCompatActivity{
                         int id = menuItem.getItemId();
                         switch (id) {
                             case R.id.account:
-                                Toast.makeText(HomeActivity.this, "Clicked Account", Toast.LENGTH_LONG).show();
+
+
                                 break;
                             case R.id.refer:
-                                Toast.makeText(HomeActivity.this, "clicked srefer", Toast.LENGTH_LONG).show();
+                                Intent intent2=new Intent(HomeActivity.this,ItemsDisp.class);
+                                startActivity(intent2);
                                 break;
                             case R.id.orders:
-                                Toast.makeText(HomeActivity.this, "clicked order", Toast.LENGTH_LONG).show();
+                                Intent intent1=new Intent(HomeActivity.this,Grabdeal.class);
+                                startActivity(intent1);
                                 break;
                             case R.id.bookmarks:
                                 Toast.makeText(HomeActivity.this, "clicked book", Toast.LENGTH_LONG).show();
