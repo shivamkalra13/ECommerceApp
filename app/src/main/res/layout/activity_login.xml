@@ -16,15 +16,32 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="150dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginRight="20dp"
+        android:id="@+id/ed1">
+
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email"
+            android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:hint="Mobile Number or Email ID" />
+            android:hint="Mobile Number" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:id="@+id/ed2"
+        android:layout_below="@+id/ed1"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phone"
+            android:inputType="textPassword"
+            android:hint="Password (minimum 8 characters)"
+            android:id="@+id/password"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:layout_width="match_parent"
