@@ -54,29 +54,23 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Call<User> call = restApi.getUser(Long.parseLong(phone.getText().toString()));
+                User client = new User(Long.parseLong(phone.getText().toString()),password.getText().toString());
+                Call<User> call = restApi.userAuth(client);
                 call.enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
                         if(!response.isSuccessful()){
                             if(response.code() == 404)
-                                Toast.makeText(LoginActivity.this, response.code()+"Phone number entered is not registered", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, response.code()+"Phone number or password entered is not correct.", Toast.LENGTH_SHORT).show();
                             else
                                 Toast.makeText(LoginActivity.this, response.code()+" Error", Toast.LENGTH_SHORT).show();
                             return;
                         }
                         User user = response.body();
-                        if(user.getPassword().equals(password.getText().toString())){
-                            Toast.makeText(LoginActivity.this, "Welcome '"+user.getName()+"' Your total earning is "+user.getEarning(), Toast.LENGTH_SHORT).show();
-                            Intent i=new Intent(LoginActivity.this,HomeActivity.class);
-
-                            startActivity(i);
-                            finish();
-                        }
-                        else {
-
-                            Toast.makeText(LoginActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
-                        }
+                        Toast.makeText(LoginActivity.this, "Welcome '"+user.getName()+"' Your total earning is "+user.getEarning(), Toast.LENGTH_SHORT).show();
+                        Intent i=new Intent(LoginActivity.this,HomeActivity.class);
+                        startActivity(i);
+                        finish();
                     }
 
                     @Override

@@ -5,7 +5,13 @@ public class User {
     private String password;
     private String name;
     private String email;
-    private int earning;
+    private Integer earning;    //Integer promitive type is used in order to make it nullable when we sending phone and password for login.
+
+    public User(long phone, String password)    //Constructs object to send login info to API and JSON ignores nulled attributes of class.
+    {
+        this.phone = phone;
+        this.password = password;
+    }
 
     public long getPhone() {
         return phone;
