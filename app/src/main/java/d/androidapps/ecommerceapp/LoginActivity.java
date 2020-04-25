@@ -54,6 +54,19 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(phone.getText().toString().equals(""))
+                {
+                    phone.setError("Enter Mobile Number");
+                    phone.requestFocus();
+                    return;
+                }
+                if(password.getText().toString().equals(""))
+                {
+                    password.setError("Enter Password");
+                    password.requestFocus();
+                    return;
+                }
+
                 User client = new User(Long.parseLong(phone.getText().toString()),password.getText().toString());
                 Call<User> call = restApi.userAuth(client);
                 call.enqueue(new Callback<User>() {
@@ -61,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<User> call, Response<User> response) {
                         if(!response.isSuccessful()){
                             if(response.code() == 404)
-                                Toast.makeText(LoginActivity.this, response.code()+"Phone number or password entered is not correct.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Phone number or password entered is not correct.", Toast.LENGTH_SHORT).show();
                             else
                                 Toast.makeText(LoginActivity.this, response.code()+" Error", Toast.LENGTH_SHORT).show();
                             return;
@@ -78,18 +91,6 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Check your Internet Connection : connection "+t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-                /*if(phone.getText().toString().equals(""))
-                {
-                    phone.setError("Enter Mobile or Email");
-                    phone.requestFocus();
-                }
-                else
-                {
-                    Intent i=new Intent(LoginActivity.this,HomeActivity.class);
-
-                    startActivity(i);
-                    finish();
-                }*/
             }
         });
     }

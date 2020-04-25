@@ -11,4 +11,6 @@ import retrofit2.http.Path;
 public interface RestApi {
     @POST("userauth/")
     Call<User> userAuth(@Body User user);
+    @POST("users/")
+    Call<User> createUser(@Body User user);
 }
