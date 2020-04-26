@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity{
         setContentView(R.layout.activity_home);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         linear = findViewById(R.id.linear);
-        vscroll = findViewById(R.id.vscroll);
+//        vscroll = findViewById(R.id.vscroll);
         toolbar.inflateMenu(R.menu.tbar_menu);
         toolbar.setNavigationIcon(R.drawable.menu1);
         //animShow = AnimationUtils.loadAnimation( this, R.anim.view_show);
