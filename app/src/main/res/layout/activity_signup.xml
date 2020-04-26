@@ -85,7 +85,7 @@
                     android:layout_below="@+id/email"
                     android:layout_margin="20dp"
                     android:hint="Password (minimum 8 characters)"
-                    android:inputType="textPassword" />
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
 

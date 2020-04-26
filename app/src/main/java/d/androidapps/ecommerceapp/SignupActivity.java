@@ -126,13 +126,14 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 Pattern pattern;
                 Matcher matcher;
-                final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+*=])(?=\\\\S+$).{4,}$";
+                final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";
                 pattern = Pattern.compile(PASSWORD_PATTERN);
                 matcher = pattern.matcher(password.getText().toString());
                 if (!matcher.matches()) {
                     password.setError("  at least 8 characters, 1 Capital, 1 Number and 1 Special Character");
                     password.requestFocus();
                     return;
+
                 }
 
 
