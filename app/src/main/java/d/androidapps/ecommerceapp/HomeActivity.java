@@ -110,26 +110,9 @@ public class HomeActivity extends AppCompatActivity{
         );
 
 
-        /*vscroll.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
-            @Override
-            public void onScrollChanged() {
-                *//* get the maximum height which we have scroll before performing any action *//*
-                int maxDistance = linear.getHeight();
-                *//* how much we have scrolled *//*
-                int movement = linear.getScrollY();
-                *//*finally calculate the alpha factor and set on the view *//*
-              //  float alphaFactor = ((movement * 1.0f) / (maxDistance - heading.getHeight()));
-                if (movement >= 0 && movement <= maxDistance) {
-                    *//*for image parallax with scroll *//*
-                    linear.setTranslationY(-movement);
-                    *//* set visibility *//*
-                  //  heading.setAlpha(alphaFactor);
-                }
-            }
-        });*/
 
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+       /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             vscroll.setOnScrollChangeListener(new View.OnScrollChangeListener() {
                 @Override
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
@@ -153,7 +136,7 @@ public class HomeActivity extends AppCompatActivity{
                     }
                 }
             });
-        }
+        }*/
 
     }
 }

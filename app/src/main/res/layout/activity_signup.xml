@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-
+    android:id="@+id/coordinator"
     tools:context=".SignupActivity">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -20,11 +21,42 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
         android:paddingTop="40dp"
-        android:paddingBottom="40dp">
+        android:layout_marginBottom="80dp">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ed4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed3">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/phnumber"
+                    android:layout_margin="20dp"
+                    android:hint="Full Name" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ed3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed2">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phnumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/password"
+                    android:layout_margin="20dp"
+                    android:hint="Mobile Number(10 digit)"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ed1"
@@ -32,7 +64,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/phone"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
@@ -56,52 +88,36 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ed3"
-                android:layout_width="match_parent"
+
+                       <CheckBox
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/ed2">
+                android:layout_below="@+id/ed4"
+                android:id="@+id/check"
+                android:text="Don't want to disclose gender"
+                android:layout_marginLeft="20dp"
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/phnumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/password"
-                    android:layout_margin="20dp"
-                    android:hint="Mobile Number"
-                    android:inputType="number" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ed4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/ed3">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/phnumber"
-                    android:layout_margin="20dp"
-                    android:hint="Full Name" />
-            </com.google.android.material.textfield.TextInputLayout>
+                />
 
             <TextView
                 android:id="@+id/gendertext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/ed4"
+                android:layout_below="@+id/check"
+                android:layout_marginTop="8dp"
                 android:layout_marginStart="20dp"
                 android:text="Select your Gender"
                 android:textSize="15sp" />
 
             <LinearLayout
-                android:id="@+id/gender"
+                android:id="@+id/linear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/ed4"
-                android:layout_margin="20dp"
+                android:layout_below="@+id/check"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:weightSum="2">
 
                 <Button
@@ -123,7 +139,7 @@
                     android:text="Male"
                     android:textAllCaps="false" />
             </LinearLayout>
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 
     <Button
@@ -132,7 +148,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
+        android:layout_gravity="bottom"
         android:text="Create Account"></Button>
 
-
 </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

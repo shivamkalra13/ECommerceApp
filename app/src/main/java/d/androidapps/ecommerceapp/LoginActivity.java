@@ -1,6 +1,8 @@
 package d.androidapps.ecommerceapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -17,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
@@ -32,11 +35,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Toolbar toolbar=findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.back);
-        login=findViewById(R.id.login);
-        phone=(EditText) findViewById(R.id.phone);
+        login = findViewById(R.id.login);
+        phone = (EditText) findViewById(R.id.phone);
         password = findViewById(R.id.password);
+        CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinator);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://dealsdraw.herokuapp.com/")
@@ -54,41 +58,39 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(phone.getText().toString().equals(""))
-                {
+                if (phone.getText().toString().equals("")) {
                     phone.setError("Enter Mobile Number");
                     phone.requestFocus();
                     return;
                 }
-                if(password.getText().toString().equals(""))
-                {
+                if (password.getText().toString().equals("")) {
                     password.setError("Enter Password");
                     password.requestFocus();
                     return;
                 }
 
-                User client = new User(Long.parseLong(phone.getText().toString()),password.getText().toString());
+                User client = new User(Long.parseLong(phone.getText().toString()), password.getText().toString());
                 Call<User> call = restApi.userAuth(client);
                 call.enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
-                        if(!response.isSuccessful()){
-                            if(response.code() == 404)
-                                Toast.makeText(LoginActivity.this, "Phone number or password entered is not correct.", Toast.LENGTH_SHORT).show();
+                        if (!response.isSuccessful()) {
+                            if (response.code() == 404)
+                                Snackbar.make(coordinatorLayout, "Phone number or password entered is not correct.", Snackbar.LENGTH_LONG).show();
                             else
-                                Toast.makeText(LoginActivity.this, response.code()+" Error", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, response.code() + " Error", Toast.LENGTH_SHORT).show();
                             return;
                         }
                         User user = response.body();
-                        Toast.makeText(LoginActivity.this, "Welcome '"+user.getName()+"' Your total earning is "+user.getEarning(), Toast.LENGTH_SHORT).show();
-                        Intent i=new Intent(LoginActivity.this,HomeActivity.class);
+                        Toast.makeText(LoginActivity.this, "Welcome '" + user.getName() + "' Your total earning is " + user.getEarning(), Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                         startActivity(i);
                         finish();
                     }
 
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
-                        Toast.makeText(LoginActivity.this, "Check your Internet Connection : connection "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Check your Internet Connection : connection " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
