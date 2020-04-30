@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".UserDetails">
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="User Details"
+        android:id="@+id/toolbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <TextView
+            android:id="@+id/cashback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:layout_above="@+id/proimg"
+            android:text="Total Cash Back Earned: Rs-2000"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="#DD2C00"
+            android:layout_alignBottom="@+id/proimg"/>
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/profilelogo"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/proimg"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="17dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@android:color/white"
+            android:text="Name of User"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="17dp"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="20dp"
+            android:text="Numer:9999999999"/>
+
+
+    </RelativeLayout>
+    <Button
+        android:id="@+id/accsetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Account Settings"
+        android:textAllCaps="false"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:gravity="left|center_vertical"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:drawableRight="@drawable/rightarrow"/>
+    <Button
+        android:id="@+id/earning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Earning And Payment"
+        android:textAllCaps="false"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:gravity="left|center_vertical"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:drawableRight="@drawable/rightarrow"/>
+    <Button
+        android:id="@+id/orders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Orders"
+        android:textAllCaps="false"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:gravity="left|center_vertical"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:drawableRight="@drawable/rightarrow"/>
+    <Button
+        android:id="@+id/referal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Referal Network"
+        android:textAllCaps="false"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:gravity="left|center_vertical"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:drawableRight="@drawable/rightarrow"/>
+    <Button
+        android:id="@+id/wishlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WhishList"
+        android:textAllCaps="false"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:gravity="left|center_vertical"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:drawableRight="@drawable/rightarrow"/>
+    <Button
+        android:id="@+id/contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contact Us"
+        android:textAllCaps="false"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:gravity="left|center_vertical"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:drawableRight="@drawable/call"/>
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:gravity="left|center_vertical"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:drawableRight="@drawable/logout"/>
+
+</LinearLayout>
