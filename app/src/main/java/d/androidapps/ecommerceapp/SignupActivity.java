@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity {
 
-    EditText email, phnumber, password, name;
+    EditText email=null, phnumber, password, name;
     Button create, male, female;
     String gender = null;
     String emailval = "";
@@ -114,11 +114,10 @@ public class SignupActivity extends AppCompatActivity {
                     phnumber.requestFocus();
                     return;
                 }
-
-                if (email != null) {
-                    emailval = email.getText().toString();
+                emailval = email.getText().toString();
+                if (emailval==null) {
                     if (!Patterns.EMAIL_ADDRESS.matcher(emailval).matches()) {
-                        email.setError("EvterValid  Email");
+                        email.setError("Enter Valid  Email");
                         email.requestFocus();
                         return;
                     }
@@ -126,7 +125,7 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 Pattern pattern;
                 Matcher matcher;
-                final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";
+                final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[*.@#$%]).{8,20})";
                 pattern = Pattern.compile(PASSWORD_PATTERN);
                 matcher = pattern.matcher(password.getText().toString());
                 if (!matcher.matches()) {
