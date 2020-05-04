@@ -24,6 +24,8 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
 
+//todo:Forgot Password to be implemented.
+
 public class LoginActivity extends AppCompatActivity {
 
     Button login;
@@ -42,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinator);
 
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://dealsdraw.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -55,6 +58,8 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        //Called when Login button is clicked.
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

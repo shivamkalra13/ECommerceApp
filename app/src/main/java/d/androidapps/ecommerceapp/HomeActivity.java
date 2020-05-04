@@ -1,48 +1,55 @@
 package d.androidapps.ecommerceapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
-import android.media.Image;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeActivity extends AppCompatActivity {
-    Toolbar toolbar;
-    NavigationView nav;
-    LinearLayout linear;
-    ImageButton profile;
-
+    private Toolbar toolbar;
+    private NavigationView nav;
+    private  LinearLayout linear;
+    private ImageButton profile;
+    private RecyclerView dealsRecyclerView;
+    private RecyclerView.Adapter dealsAdapter;
+    private RestApi restApi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinator);
         toolbar = findViewById(R.id.toolbar);
         linear = findViewById(R.id.linear);
         profile = findViewById(R.id.profile);
         toolbar.inflateMenu(R.menu.tbar_menu);
         toolbar.setNavigationIcon(R.drawable.menu1);
+        dealsRecyclerView = (RecyclerView) findViewById(R.id.deals_recycler_view);
+        dealsRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
 
+        //-----------Configuring the Action Bar and Navigation Drawer.
         toolbar.setNavigationOnClickListener(
                 v -> {
                     DrawerLayout navDrawer = findViewById(R.id.draw);
@@ -100,6 +107,34 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 }
         );
+        //----------Action Bar and Navigation Drawer config over.
+
+        //todo:Finalize the view of offer_card and do entry of more offers in DB to check the working properly.
+
+        //------------Offers fetched from API and displayed using DealsAdapter Recycler View.
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://dealsdraw.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        restApi = retrofit.create(RestApi.class);
+        Call<ArrayList<Offer>> call = restApi.getOffers();
+        call.enqueue(new Callback<ArrayList<Offer>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Offer>> call, Response<ArrayList<Offer>> response) {
+                if (!response.isSuccessful()) {
+                    Snackbar.make(coordinatorLayout, response.code() + " Error" , Snackbar.LENGTH_LONG).show();
+                    return;
+                }
+                ArrayList<Offer> offers = response.body();
+                dealsAdapter = new DealsAdapter(offers);
+                dealsRecyclerView.setAdapter(dealsAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Offer>> call, Throwable t) {
+                Snackbar.make(coordinatorLayout, "Check your Internet Connection : connection " + t.getMessage(), Snackbar.LENGTH_LONG).show();
+            }
+        });
 
     }
 }

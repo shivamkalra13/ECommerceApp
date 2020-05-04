@@ -19,6 +19,7 @@
             android:titleTextColor="#4A4A4A"
             />
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -137,82 +138,11 @@
                         android:adjustViewBounds="true"
                         android:src="@drawable/sale" />
 
-                    <HorizontalScrollView
-                        android:id="@+id/hscroll2"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/deals_recycler_view"
+                        android:scrollbars="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/toolbar"
-                        android:layout_marginTop="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="100dp"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:background="@color/cardview_dark_background"
-                                android:paddingLeft="-100dp"
-                                android:paddingRight="-100dp"
-                                android:src="@drawable/bg" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:background="@color/cardview_dark_background"
-                                android:paddingLeft="-100dp"
-                                android:paddingRight="-100dp"
-                                android:src="@drawable/bg" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:background="@color/cardview_dark_background"
-                                android:paddingLeft="-100dp"
-                                android:paddingRight="-100dp"
-                                android:src="@drawable/bg" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:background="@color/cardview_dark_background"
-                                android:paddingLeft="-100dp"
-                                android:paddingRight="-100dp"
-                                android:src="@drawable/bg" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:background="@color/cardview_dark_background"
-                                android:paddingLeft="-100dp"
-                                android:paddingRight="-100dp"
-                                android:src="@drawable/bg" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:background="@color/cardview_dark_background"
-                                android:paddingLeft="-100dp"
-                                android:paddingRight="-100dp"
-                                android:src="@drawable/bg" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:background="@color/cardview_dark_background"
-                                android:paddingLeft="-100dp"
-                                android:paddingRight="-100dp"
-                                android:src="@drawable/bg" />
-                        </LinearLayout>
-                    </HorizontalScrollView>
+                        android:layout_height="wrap_content"/>
 
                     <ImageView
                         android:layout_width="wrap_content"

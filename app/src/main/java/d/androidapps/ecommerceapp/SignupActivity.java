@@ -27,6 +27,8 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//todo:OTP configuration to be implemented.
+
 public class SignupActivity extends AppCompatActivity {
 
     EditText email=null, phnumber, password, name;
