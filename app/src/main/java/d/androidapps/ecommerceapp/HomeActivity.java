@@ -128,6 +128,7 @@ public class HomeActivity extends AppCompatActivity {
                 ArrayList<Offer> offers = response.body();
                 dealsAdapter = new DealsAdapter(offers);
                 dealsRecyclerView.setAdapter(dealsAdapter);
+               dealsAdapter.notifyDataSetChanged();
             }
 
             @Override

@@ -46,6 +46,16 @@
             android:hint="Password (minimum 8 characters)"
             android:id="@+id/password"/>
     </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/forgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password"
+            android:layout_below="@+id/ed2"
+            android:layout_margin="20dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/holo_blue_dark"
+            />
 
     <Button
         android:layout_width="match_parent"
