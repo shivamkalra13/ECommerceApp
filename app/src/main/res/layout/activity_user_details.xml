@@ -13,7 +13,7 @@
         android:id="@+id/toolbar"/>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="250dp">
         <TextView
             android:id="@+id/cashback"
             android:layout_width="wrap_content"
@@ -25,16 +25,17 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:layout_alignParentBottom="true"
-            android:background="#DD2C00"
+            android:background="@color/colorPrimary"
             android:layout_alignBottom="@+id/proimg"/>
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:src="@drawable/profilelogo"
             android:layout_alignParentBottom="true"
-            android:layout_margin="20dp"
+            android:layout_marginBottom="70dp"
+            android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
             android:id="@+id/proimg"
             />
@@ -43,8 +44,9 @@
             android:layout_height="wrap_content"
             android:textSize="17dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="17dp"
+            android:layout_marginBottom="50dp"
             android:layout_marginLeft="20dp"
+            android:layout_centerHorizontal="true"
             android:textColor="@android:color/white"
             android:text="Name of User"/>
         <TextView
@@ -52,14 +54,21 @@
             android:layout_height="wrap_content"
             android:textSize="17dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="17dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
             android:textColor="@android:color/white"
             android:layout_marginRight="20dp"
-            android:text="Numer:9999999999"/>
+            android:text="9999999999"/>
 
 
     </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     <Button
         android:id="@+id/accsetting"
         android:layout_width="match_parent"
@@ -108,7 +117,7 @@
         android:id="@+id/wishlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WhishList"
+        android:text="WishList"
         android:textAllCaps="false"
         android:padding="10dp"
         android:textSize="18dp"
@@ -137,5 +146,7 @@
         android:gravity="left|center_vertical"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:drawableRight="@drawable/logout"/>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
