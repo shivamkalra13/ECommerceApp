@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactUs">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:title="Contact Us" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/eecomedit"/>
+
+      <EditText
+          android:layout_margin="20dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="NaME"
+          android:id="@+id/nameet"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="email"
+            android:id="@+id/emailet"/>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:layout_margin="20dp"
+            android:hint="write feedback"
+            android:id="@+id/feedbacket"/>
+        </androidx.core.widget.NestedScrollView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OR \ncall us"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:textSize="20dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Call"
+            android:drawableLeft="@drawable/call"
+            android:drawableRight="@drawable/call"
+            android:layout_gravity="center"
+            android:id="@+id/callbtn"
+            android:layout_alignParentBottom="true"/>
+
+    </LinearLayout>
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Send Feedback"
+    android:layout_margin="20dp"
+    android:id="@+id/sendbtn"
+    android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
