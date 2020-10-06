@@ -4,13 +4,40 @@
     android:layout_height="wrap_content">
     <View
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="190dp"
         android:background="@android:color/darker_gray"/>
     <ImageButton
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/profile"
-        android:background="@drawable/profilelogo"
-        android:layout_margin="50dp"/>
+        android:background="@drawable/ic_baseline_account_box_24"
+        android:layout_margin="30dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile"
+        android:layout_marginTop="-20dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/number"
+            android:textColor="@color/white"
+            android:text="9123467540"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:paddingLeft="30dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text=">"
+            android:paddingRight="20dp"
+            android:layout_weight="1"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textAlignment="viewEnd"/>
+    </LinearLayout>
+
 
 </RelativeLayout>

@@ -1,8 +1,10 @@
 package d.androidapps.ecommerceapp;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -49,7 +51,19 @@ public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.MyViewHolder
         // - replace the contents of the view with that element
         TextView textView;
         textView = holder.offercard.findViewById(R.id.info_text);       //Took reference of a widget of offer_card
+        ImageView picture = holder.offercard.findViewById(R.id.pic);
         textView.setText(offers.get(position).getTitle());              //Assigned value to that widget equals to a property of Offer(1 Offer from Offers list) recieved from DB.
+        //todo: Remove this temporary 'picture' changing code:-
+        if(offers.get(position).getTitle().equals("Electronics at Amazon"))
+            picture.setImageResource(R.drawable.offerimg1);
+        if(offers.get(position).getTitle().equals("Electronics at Flipkart"))
+            picture.setImageResource(R.drawable.offerimg2);
+        if(offers.get(position).getTitle().equals("Fashion at Amazon"))
+            picture.setImageResource(R.drawable.offerimg3);
+        if(offers.get(position).getTitle().equals("Fashion at Ebay"))
+            picture.setImageResource(R.drawable.offerimg4);
+        if(offers.get(position).getTitle().equals("Sports at Flipkart"))
+            picture.setImageResource(R.drawable.offerimg5);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

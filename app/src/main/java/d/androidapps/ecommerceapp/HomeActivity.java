@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         linear = findViewById(R.id.linear);
         profile = findViewById(R.id.profile);
         toolbar.inflateMenu(R.menu.tbar_menu);
-        toolbar.setNavigationIcon(R.drawable.menu1);
+        toolbar.setNavigationIcon(R.drawable.ic_outline_menu_24);
         dealsRecyclerView = (RecyclerView) findViewById(R.id.deals_recycler_view);
         dealsRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
 

@@ -55,9 +55,9 @@
 
                                 <ImageView
                                     android:layout_width="70dp"
-                                    android:layout_height="70dp"
+                                    android:layout_height="50dp"
                                     android:layout_margin="5dp"
-                                    android:src="@drawable/cat" />
+                                    android:src="@drawable/elec" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -76,9 +76,9 @@
 
                                 <ImageView
                                     android:layout_width="70dp"
-                                    android:layout_height="70dp"
+                                    android:layout_height="50dp"
                                     android:layout_margin="5dp"
-                                    android:src="@drawable/cat" />
+                                    android:src="@drawable/fash" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -96,9 +96,9 @@
 
                                 <ImageView
                                     android:layout_width="70dp"
-                                    android:layout_height="70dp"
+                                    android:layout_height="50dp"
                                     android:layout_margin="5dp"
-                                    android:src="@drawable/cat" />
+                                    android:src="@drawable/kitchen1" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -116,9 +116,9 @@
 
                                 <ImageView
                                     android:layout_width="70dp"
-                                    android:layout_height="70dp"
+                                    android:layout_height="50dp"
                                     android:layout_margin="5dp"
-                                    android:src="@drawable/cat" />
+                                    android:src="@drawable/men1" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -136,9 +136,9 @@
 
                                 <ImageView
                                     android:layout_width="70dp"
-                                    android:layout_height="70dp"
+                                    android:layout_height="50dp"
                                     android:layout_margin="5dp"
-                                    android:src="@drawable/cat" />
+                                    android:src="@drawable/women1" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -156,7 +156,7 @@
 
                                 <ImageView
                                     android:layout_width="70dp"
-                                    android:layout_height="70dp"
+                                    android:layout_height="50dp"
                                     android:layout_margin="5dp"
                                     android:src="@drawable/cat" />
 
@@ -176,7 +176,7 @@
 
                                 <ImageView
                                     android:layout_width="70dp"
-                                    android:layout_height="70dp"
+                                    android:layout_height="50dp"
                                     android:layout_margin="5dp"
                                     android:src="@drawable/cat" />
 
@@ -213,7 +213,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/sale" />
+                        android:src="@drawable/temp" />
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
